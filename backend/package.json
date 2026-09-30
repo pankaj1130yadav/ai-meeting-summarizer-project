@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "groq-sdk": "^0.9.1",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.0",
+    "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.7.5"
+  },
+  "description": "AI Meeting Intelligence & Productivity Platform - backend API (Express + MongoDB + Groq)",
+  "main": "server.js",
+  "name": "meeting-platform-backend",
+  "scripts": {
+    "start": "node server.js",
+    "reminders": "node scripts/reminders.js",
+    "lint": "eslint server.js scripts/*.js *.test.js",
+    "format": "prettier --check server.js scripts/*.js *.test.js",
+    "format:write": "prettier --write server.js scripts/*.js *.test.js",
+    "test": "node phase1-helpers.test.js && node phase1-inc2.test.js && node p1-fix-b1.test.js && node phase2-extractors.test.js && node phase3-analytics.test.js && node phase4-workspaces.test.js && node phase5-notifications.test.js && node phase6-integrations.test.js && node phase9-extra.test.js && node insights.test.js && node phase11-llm.test.js && node phase12-rag.test.js && node integration.test.js"
+  },
+  "version": "1.0.0",
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "prettier": "^3.9.9",
+    "supertest": "^7.3.0"
+  },
+  "optionalDependencies": {
+    "nodemailer": "^6.9.14",
+    "googleapis": "^140.0.0"
+  }
+}

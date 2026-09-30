@@ -1,0 +1,1 @@
+{"dependencies":{"jspdf":"^2.5.1","react":"^18.3.1","react-dom":"^18.3.1","react-toastify":"^10.0.5","socket.io-client":"^4.7.5"},"devDependencies":{"@vitejs/plugin-react":"^4.3.4","vite":"^6.0.3"},"name":"meeting-platform-frontend","private":true,"scripts":{"build":"vite build","dev":"vite","preview":"vite preview"},"type":"module","version":"1.0.0"}
