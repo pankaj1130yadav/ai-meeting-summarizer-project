@@ -256,12 +256,15 @@ function App() {
   // W3-P/Q: optional retrieval-method label for Ask Across Meetings
   const [ragRetrievalMethod, setRagRetrievalMethod] = useState(null);
 
-  const API_URL = "http://localhost:5000/api/meetings";
-  const AUTH_URL = "http://localhost:5000/api/auth";
-  const WS_URL = "http://localhost:5000/api/workspaces";
-  const NOTIF_URL = "http://localhost:5000/api/notifications";
-  const USERS_URL = "http://localhost:5000/api/users";
-  const INTEG_URL = "http://localhost:5000/api/integrations";
+ // Backend base URL: uses Vercel env var in production, localhost in dev
+const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = `${API_BASE}/api/meetings`;
+const AUTH_URL = `${API_BASE}/api/auth`;
+const WS_URL = `${API_BASE}/api/workspaces`;
+const NOTIF_URL = `${API_BASE}/api/notifications`;
+const USERS_URL = `${API_BASE}/api/users`;
+const INTEG_URL = `${API_BASE}/api/integrations`;
+
 
   useEffect(() => {
     if (token) {
@@ -373,7 +376,8 @@ function App() {
       }
       if (cancelled) return;
 
-      socket = mod.io("http://localhost:5000", { auth: { token } });
+      socket = mod.io(API_BASE, { auth: { token } });
+
       socketRef.current = socket;
 
       socket.on("connect", () => {
@@ -2897,7 +2901,8 @@ function App() {
     setChatLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/meetings/${result._id}/chat`, {
+const response = await fetch(`${API_BASE}/api/meetings/${result._id}/chat`, {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",
